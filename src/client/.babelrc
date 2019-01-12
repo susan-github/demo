@@ -1,0 +1,23 @@
+{
+  "presets": [
+    ["env", {
+      "targets": {
+        "browsers": ["Android >= 4.0", "ios >= 8"]
+      },
+      "debug": false,
+      "include": [],
+      "useBuiltIns": true,
+      "modules": false
+    }],
+    "react",
+    "stage-0"
+  ],
+  "plugins": [
+    "transform-decorators-legacy"
+  ],
+  "env": {
+    "localdev": {
+      "plugins": ["react-hot-loader/babel"]
+    }
+  }
+}

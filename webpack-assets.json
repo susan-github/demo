@@ -1,0 +1,10 @@
+{
+  "javascript": {
+    "main": "http://localhost:8081/dist/main-8cd4af.js"
+  },
+  "styles": {},
+  "assets": {},
+  "webpack": {
+    "version": "3.12.0"
+  }
+}
