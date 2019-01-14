@@ -1,10 +1,10 @@
 const fs = require('fs');
 const path = require('path')
-const WebpackIsomorphicToolsPlugin = require('webpack-isomorphic-tools/plugin')
 const HappyPack = require('happypack')
 const LogPlugin = require('webpack-logplugin')
 const config = require('../config')
 
+const WebpackIsomorphicToolsPlugin = require('webpack-isomorphic-tools/plugin')
 const webpackIsomorphicToolsPlugin = new WebpackIsomorphicToolsPlugin(require('./isomorphic-tools-config'))
 const host = (config.host || 'localhost');
 const port = (Number(config.port) + 1) || 3001;
@@ -26,7 +26,7 @@ module.exports = {
   entry: './src/client/app.js',
   output: {
     path: assetsPath,
-    filename: '[name]-[hash:6].js',
+    filename: 'bundle.js',
     publicPath: publicPath
   },
   module: {
@@ -44,6 +44,13 @@ module.exports = {
       }
     ]
   },
+  resolve: {
+    modules: [
+      path.resolve(__dirname, '../src'),
+      'node_modules',
+    ],
+    extensions: ['.json', '.web.js', '.js', '.jsx', 'less', 'scss', 'css'],
+  },
   plugins: [
     new HappyPack({
       id: 'happybabel',
@@ -56,7 +63,7 @@ module.exports = {
       verbose: true
     }),
     new LogPlugin( () => {
-      console.log('==> 💻  Open http://%s:%s in a browser to view the app.', host, port)
+      console.log('==> 💻  Open http://%s:%s in a browser to view the app.', config.host, config.port)
     }),
     webpackIsomorphicToolsPlugin.development()
   ]

@@ -1,14 +1,17 @@
 
+const ejs = require('ejs')
+const path = require('path')
 const config = require('./../../config')
 const { ssrRender } = require('./ssrRender')
 
 const express = require('express')
-
 const app = express()
 
 const router = express.Router()
 
 router.get('/*', ssrRender)
+
+app.use('/', router)
 
 app.listen(config.port, (err) => {
   if (err) {

@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import ReactDOM from 'react-dom/server'
 import PropTypes from 'prop-types'
 import serialize from 'serialize-javascript'
 
@@ -21,7 +22,7 @@ export default class Html extends Component {
           }
         </head>
         <body>
-          <div id="content" dangerouslySetInnerHTML={{__html: React.renderToString(component)}}/>
+          <div id="content" dangerouslySetInnerHTML={{__html: ReactDOM.renderToString(component)}}/>
           {
             Object.keys(assets.javascript).map((script, i) =>
               <script src={assets.javascript[script]} key={i}/>
@@ -30,5 +31,6 @@ export default class Html extends Component {
         </body>
       </html>
     )
+    return html
   }
 }

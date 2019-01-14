@@ -1,5 +1,5 @@
-import React from 'react';
-
+import React from 'react'
+import ReactDOM from 'react-dom/server'
 import Html from './html'
 
 export const ssrRender = (req, res) => {
@@ -13,7 +13,7 @@ export const ssrRender = (req, res) => {
   console.log('kkkkkkkkkkk')
 
   res.send(`<!doctype html>
-    ${React.renderToString(
+    ${ReactDOM.renderToString(
       <Html
         assets={webpackIsomorphicTools.assets()}
         // store={store}

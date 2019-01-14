@@ -1,12 +1,12 @@
-const config = require('./../../config/index')
 const express = require('express')
 const webpack = require('webpack')
 
+const config = require('./../../config')
 const webpackConfig = require('./../../webpack/dev.config')
 
 const compiler = webpack(webpackConfig)
 
-const host = 'localhost'
+const host = config.host || 'localhost'
 const port = (Number(config.port) + 1) || 8081
 
 const app = new express()

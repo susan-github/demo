@@ -29,6 +29,7 @@
   "license": "MIT",
   "dependencies": {
     "babel-loader": "^7.1.2",
+    "ejs": "^2.6.1",
     "express": "^4.16.4",
     "prop-types": "^15.6.2",
     "react": "^16.7.0",
