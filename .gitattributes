@@ -1,0 +1,2 @@
+*.js linguist-language=node
+*.jsx linguist-language=react
